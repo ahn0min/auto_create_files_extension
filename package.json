@@ -4,6 +4,10 @@
   "description": "auto create index.tsx and styles.ts in target folder ",
   "version": "0.0.1",
   "publisher": "ahn0min",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ahn0min/auto_create_files_extension.git"
+  },
   "engines": {
     "vscode": "^1.82.0"
   },
@@ -15,12 +19,25 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
-    "commands": [
-      {
-        "command": "snowball-components-folder-template.helloWorld",
-        "title": "Hello World"
+    "configuration": {
+      "auto-create-file-bot": {
+        "targetFile": {
+          "type": "string",
+          "default": "components",
+          "description": "해당 폴더명의 자식 폴더들이 플러그인의 대상이 됩니다."
+        },
+        "file1": {
+          "type": "string",
+          "default": "index.tsx",
+          "description": "자동으로 생성하고 싶은 파일 1"
+        },
+        "file2": {
+          "type": "string",
+          "default": "styles.ts",
+          "description": "자동으로 생성하고 싶은 파일 2"
+        }
       }
-    ]
+    }
   },
   "scripts": {
     "compile": "tsc -p ./",
